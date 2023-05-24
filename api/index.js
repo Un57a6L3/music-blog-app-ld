@@ -4,6 +4,7 @@ import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
 import cookieParser from "cookie-parser";
 import multer from "multer";
+import { db } from "./db.js"
 
 const app = express();
 
@@ -30,5 +31,8 @@ app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 
 app.listen(8800, () => {
-  console.log("Connected!");
-});
+  db.connect((err) => {
+    if (err) console.log(`Error making a connection with the db: ${err}`);
+    console.log("Connected to MySQL DB");
+  })
+})
