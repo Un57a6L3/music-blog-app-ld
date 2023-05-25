@@ -4,7 +4,7 @@ import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
-import categories from "../components/Navbar"
+import { categories } from "../components/Navbar"
 
 const toTitleCase = str => str.replace(/(^\w|\s\w)(\S*)/g, (_,m1,m2) => m1.toUpperCase()+m2.toLowerCase())
 
