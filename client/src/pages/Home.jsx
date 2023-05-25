@@ -21,9 +21,9 @@ const Home = () => {
     fetchData();
   }, [cat]);
 
-  const getText = (html) =>{
+  const getText = (html) => {
     const doc = new DOMParser().parseFromString(html, "text/html")
-    return doc.body.textContent
+    return doc.body.innerText
   }
 
 
@@ -40,7 +40,9 @@ const Home = () => {
                 <h1>{post.title}</h1>
               </Link>
               <p>{getText(post.desc)}</p>
-              <button>Read More</button>
+              <Link className="link" to={`/post/${post.id}`}>
+                <button>Read More</button>
+              </Link>
             </div>
           </div>
         ))}
