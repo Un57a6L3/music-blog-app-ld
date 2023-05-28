@@ -36,21 +36,21 @@ const Login = () => {
         <input
           required
           type="text"
-          placeholder="username"
+          placeholder="Username"
           name="username"
           onChange={handleChange}
         />
         <input
           required
           type="password"
-          placeholder="password"
+          placeholder="Password"
           name="password"
           onChange={handleChange}
         />
         <button onClick={handleSubmit}>Login</button>
         {err && <p>{err}</p>}
         <span>
-          Don't you have an account? <Link to="/register">Register</Link>
+          Don't have an account? <Link to="/register">Register</Link>
         </span>
       </form>
     </div>
