@@ -23,7 +23,8 @@ const Home = () => {
 
   const getText = (html) => {
     const doc = new DOMParser().parseFromString(html, "text/html")
-    return doc.body.innerText
+    const tags = Array.from(doc.body.children);
+    return tags.map((child) => (<p>{child.innerText}</p>))
   }
 
 
