@@ -16,7 +16,7 @@ const Menu = ({cat}) => {
     };
     fetchData();
   }, [cat]);
-  const postId = useLocation().pathname.split("/")[2];
+  const postId = useLocation().pathname.split("/").pop();
   return (
     <div className="menu">
       <h1>Other posts from this category</h1>
