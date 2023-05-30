@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/posts${cat}`);
+        const res = await axios.get(`/posts${cat ? cat : "?cat=news"}`);  
         setPosts(res.data);
       } catch (err) {
         console.log(err);
@@ -24,7 +24,11 @@ const Home = () => {
   const getText = (html) => {
     const doc = new DOMParser().parseFromString(html, "text/html")
     const tags = Array.from(doc.body.children);
-    return tags.map((child) => (<p>{child.innerText}</p>))
+    return tags.map((child) => (
+      child.innerHTML === "<br>"
+      ? <p><br></br></p>
+      : <p>{child.innerText}</p>
+    ))
   }
 
 
@@ -40,7 +44,7 @@ const Home = () => {
               <Link className="link" to={`/post/${post.id}`}>
                 <h1>{post.title}</h1>
               </Link>
-              <p>{getText(post.desc)}</p>
+              <div style={{overflowY: "hidden", maxHeight: "300px"}}>{getText(post.desc)}</div>
               <Link className="link" to={`/post/${post.id}`}>
                 <button>Read More</button>
               </Link>
