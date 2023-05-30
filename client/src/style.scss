@@ -76,6 +76,7 @@ $maincolor: green;
         .logo {
           img {
             width: 120px;
+            border-radius: 50%;
           }
         }
         .links {
@@ -126,6 +127,7 @@ $maincolor: green;
       border-radius: 10px;
       img {
         height: 50px;
+        border-radius: 50%;
       }
     }
 
@@ -136,48 +138,52 @@ $maincolor: green;
         margin-top: 50px;
         display: flex;
         flex-direction: column;
-        gap: 150px;
+        gap: 75px;
 
         .post {
           display: flex;
-          gap: 100px;
+          gap: 50px;
 
           &:nth-child(2n + 1) {
             flex-direction: row-reverse;
           }
 
           .img {
-            flex: 2;
+            flex: 3;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: center;
             position: relative;
 
-            &::after {
-              content: "";
-              width: 100%;
-              height: 100%;
-              border-radius: 10px;
-              background-color: $bgcolor;
-              position: absolute;
-              top: 20px;
-              left: -20px;
-              z-index: -1;
-            }
+            // &::after {
+            //   content: "";
+            //   width: 100%;
+            //   height: 100%;
+            //   border-radius: 10px;
+            //   background-color: $bgcolor;
+            //   position: absolute;
+            //   top: 20px;
+            //   left: -20px;
+            //   z-index: -1;
+            // }
 
             img {
               width: 100%;
               border-radius: 10px;
               max-height: 400px;
               object-fit: cover;
+              filter: drop-shadow(-20px 20px 0 $bgcolor);
             }
           }
 
           .content {
-            flex: 3;
+            flex: 4;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
 
             h1 {
-              font-size: 48px;
+              font-size: 36px;
             }
 
             p {
@@ -297,6 +303,7 @@ $maincolor: green;
             color: $maincolor;
             background-color: white;
             border: 1px solid $maincolor;
+            border-radius: 5px;
 
             &:hover {
               border: 1px solid white;
